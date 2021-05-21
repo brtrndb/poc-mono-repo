@@ -1,0 +1,10 @@
+Properties sharedProperties = new Properties()
+FileInputStream input = new FileInputStream(file("../${GRADLE_PROPERTIES}"))
+
+sharedProperties.load(input)
+input.close()
+
+sharedProperties.stringPropertyNames()
+        .each {
+            ext.set(it, sharedProperties.getProperty(it))
+        }

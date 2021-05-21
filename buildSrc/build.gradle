@@ -1,0 +1,16 @@
+plugins {
+    id 'groovy-gradle-plugin'
+}
+
+repositories {
+    gradlePluginPortal()
+}
+
+apply from: './load-shared-properties.gradle'
+
+dependencies {
+    // Main dependencies.
+    implementation("io.freefair.gradle:lombok-plugin:${plugin_lombok_version}")
+    implementation("io.spring.gradle:dependency-management-plugin:${plugin_spring_dependency_management_version}")
+    implementation("org.springframework.boot:spring-boot-gradle-plugin:${plugin_spring_boot_version}")
+}

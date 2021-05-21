@@ -1,0 +1,31 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+plugins {
+    id 'idea'
+    id 'java'
+    id 'maven-publish'
+    id 'io.freefair.lombok'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+sourceCompatibility = JavaVersion.toVersion("${jdk_version_source}")
+targetCompatibility = JavaVersion.toVersion("${jdk_version_target}")
+group = "${project_group}"
+version = "${project_version}"
+
+dependencies {
+    // Tests dependencies.
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${plugin_spring_boot_version}") { exclude group: 'org.junit.vintage', module: 'junit-vintage-engine' }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events = [TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED]
+    }
+    ignoreFailures = true
+}

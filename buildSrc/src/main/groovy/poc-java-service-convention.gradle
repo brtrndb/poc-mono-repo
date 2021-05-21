@@ -1,0 +1,24 @@
+plugins {
+    id 'poc-java-convention'
+    id 'application'
+    id 'maven-publish'
+    id 'io.spring.dependency-management'
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    // Main dependencies.
+    implementation('org.springframework.boot:spring-boot-starter')
+    // Dev dependencies.
+    developmentOnly('org.springframework.boot:spring-boot-devtools')
+}
+
+//springBoot {
+//    buildInfo()
+//}
+
+test {
+    doFirst {
+        systemProperty 'spring.profiles.active', 'test'
+    }
+}
