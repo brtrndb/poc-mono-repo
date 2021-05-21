@@ -1,1 +1,16 @@
 rootProject.name = 'poc-mono-repo'
+
+include ":library-a"
+project(":library-a").projectDir = file("library-a")
+
+include ":library-b"
+project(":library-b").projectDir = file("library-b")
+
+include ":library-c"
+project(":library-c").projectDir = file("library-c")
+
+include ":service-a"
+project(":service-a").projectDir = file("service-a")
+
+include ":service-b"
+project(":service-b").projectDir = file("service-b")
