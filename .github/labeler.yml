@@ -1,0 +1,14 @@
+library-a:
+  - 'library-a/src/main/**'
+
+library-b:
+  - 'library-b/src/main/**'
+
+library-c:
+  - 'library-c/src/main/**'
+
+service-a:
+  - 'service-a/src/main/**'
+
+service-b:
+  - 'service-b/src/main/**'
