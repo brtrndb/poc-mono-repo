@@ -1,4 +1,24 @@
+buildscript {
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.github.leandroborgesferreira:dag-command:1.5.3'
+    }
+}
+
 plugins {
     id 'idea'
     id 'java-base'
+}
+
+apply plugin: 'com.github.leandroborgesferreira.dag-command'
+
+dagCommand {
+    filter = "all"
+    defaultBranch = "origin/master"
+    outputType = "json"
+    printModulesInfo = true
 }
